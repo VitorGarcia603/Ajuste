@@ -1,0 +1,9 @@
+{% macro field(field, placeholder="") %}
+<div class="mb-3">
+  {{ field.label(class="form-label") }}
+  {{ field(class="form-control" + (" is-invalid" if field.errors else ""), placeholder=placeholder) }}
+  {% if field.errors %}
+    <div class="invalid-feedback">{{ field.errors[0] }}</div>
+  {% endif %}
+</div>
+{% endmacro %}
